@@ -107,7 +107,6 @@ textarea {
    ========================================================================== */
 
 .container {
-    height: 100%;
     width: 100%;
     background: #eeeeee;
 }
@@ -158,14 +157,15 @@ textarea {
 }
 
 .contentContainer {
-    height: 100%;
     width: 100%;
+    height: auto;
+    padding-bottom: 200px;
     background-color: #ffffff;
     padding-top: 10px;
 }
 
 .contentContainerAbout {
-    height: 652px;
+    height: auto;
     width: 70%;
     background-color: #ffffff;
     margin: auto;
@@ -179,6 +179,21 @@ textarea {
 .demoVid {
     width: 640px;
     margin: auto;
+}
+
+.aboutImg {
+    margin: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.paddingDiv {
+    width: 100%;
+    height: 100px;
+    color: #ffffff;
 }
 
 
