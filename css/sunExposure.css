@@ -165,7 +165,7 @@ textarea {
 }
 
 .contentContainerAbout {
-    height: auto;
+    height: 100%;
     width: 70%;
     background-color: #ffffff;
     margin: auto;
