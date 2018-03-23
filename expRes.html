@@ -2,46 +2,66 @@
 <!-- Made using HTML5 Boilerplate - credits to them for the boilerplate -->
 
 <head>
- <title>SunExposure</title>
- <link rel="stylesheet" type="text/css" href="css/sunExposure.css">
+    <title>SunExposure</title>
+    <link rel="stylesheet" type="text/css" href="css/sunExposure.css">
 </head>
 
-<body>
- <div class="container">
- <div class="headerBar">
-  <div class="title">
-  SunExposure
-  </div>
- </div>
- <div class="menuBar">
-  <div class="menuItem" onclick="location.href='index.html'">Home</div>
-  <div class="menuItem" onclick="location.href='app.html'">SunExposure App</div>
-  <div class="menuItem currentMenuItem">Experiment And Results</div>
-  <div class="menuItem" onclick="location.href='about.html'">About</div>
- </div>
- <div class="contentContainerAbout">
-  <h1> Experiment 1 </h1>
-  After data was collected in the CSV, we extract it from the Nexus 5 smartphone for analysis and comparison to the ground truth for indoor vs outdoor detection and to the Shade Sensor during the structured walkthrough scenario. A snippet of the data collected can be found in Appendix B. Using Weka (https://www.cs.waikato.ac.nz/ml/weka/), we perform various methods of classification for indoors vs outdoors. The methods chosen focus on rule and tree based classification method.  We choose this focus due to the ability of rule and tree based classifiers to be coded efficiently within an app once trained, and the ability of providing real time(fast) predictions. The results of these models are below in Table 1. For completeness, two non-rule or tree based classifiers were evaluated, and the models are compared to the baseline ZeroR.
-  <div class="figureIMG">
-  <img src="media/Table_1.png">
-  </div>
-  As the results show, the decision tree based models were best able to the classify the data, indicative of their classification abilities given separable data. Additionally, we note that all of the learned models performed significantly better than the baseline ZeroR, which classified all of the data points as outdoors.  The Random Forrest classifier performed best, though with signficantly higher complexity than the J48 and REPTree. For the REPTree, the parameters used were no-pruning and a max depth of 3, to prevent overfitting on the data and to reduce model complexity. Based on the results, both F-score and model complexity, we choose the REPTree model as the model for the SunExposure app’s indoor-outdoor detection. The decision tree that is the result of REPTree with a max depth of 3 is shown in Figure 2
-  <div class="figureIMG">
-  <img src="media/figure_2.png">
-  </div>
-  Analyzing the tree and the results, we find that the most important features in determining whether the user is in-doors or outdoors are the cell signal DBM, number of GPS satellites and Wifi strength. Further, the results show that this decision tree can effectively and reliably predict whether a user is indoor or outdoor. This represents a key step in the system’s ability to measure a user’s UV exposure using only a smart phone. The system must be able to know when the user is not experiencing UV (is indoors) in order to know when to disregard OpenUV API readings, as discussed in Section 3.2. Using this learned method to distinguish between indoors and outdoors, we apply it using the algorithm in Section 3.3 to measure participants’ UV dosage during the structured walkthrough. The graph illustrating one of the participant’s results, representative of overall results, can be found below, in Figure 3. The results of the t-test and the correlations over all the participants are also found below in Table 2.
-  <div class="figureIMG">
-  <img src="media/Figure_3.png">
-  </div>
-  Figure 3 shows a participants results, showing the UV dosage measurements from the SunExposure System (in gray), the Shade Sensor (in blue), and Weather.com’s estimation of UV for the area (in orange). To create the plot for Weather.com, the UV Index reported was multiplied using the same conversion as for the SunExposure system, and used ground truth for its indoor-outdoor labels. Based
-  <div class="figureIMG">
-  <img src="media/Table_2.png">
-  </div>
-  on this graph, there are a few notable points that can be seen. First, the SunExposure App’s UV dosage measurements match those of the Shade Sensor and of ground truth while indoors.  This can be seen in the horizontal lines in the graph, which represent times when the UV dosage, an accumulated value, did not increase for either of the three measurement methods. However, the graph also shows that while the user is outdoors, the UV dosage measurements differ considerably between the three methods. There are a few possible explanations for this. First compared to the Weather.com measurements and the Shade Sensor measurements, the SunExposure app overestimates UV dosage. This is due to UV Index measurements that the OpenUV API provide. While this API was chosen for its ability to provide real-time, precise (to the hundredth place) UV Index measurements, the results show that it likely over reports UVI. Due to overestimation, we consider using other APIs, that are likely not real-time or not precise (integer UVI values) in our futurework. Next, compared to the other methods of measurements, the results show that the Shade Sensor under reports UV dosage. During our testing, we observed that the UVI readings on the Shade Sensor app were variable based on angle of the sensor and the shade created by the user. While in theory it is able to capture when the user is not experiencing UV due to shade or overhangs, we found that often the user wearing the sensor created a shadow over the sensor if he or she was not facing the sun. This caused UVI measurements to drop considerably. Additionally, we found that if the Shade sensor was not facing directly upwards, the measurements recorded by the Shade sensor also decreased considerably. The results of the t-test support these findings, as the p-value of 0.035 rejects the null hypothesis that the true mean difference between the Shade sensor UV dosage and that of the SunExposure app is 0.  We then conclude, as illustrated in the graph above, that the US dosage measurements are different between the two systems. However, as the Pearson Correlation Coefficient shows, the two measurements are highly correlated, showing that both are similar in their ability to not increase when the user is indoors and their increase when the user is outdoors and has UV exposure.
-  <h1> Experiment 2 </h1>
-  The results of our t-test for before and after self-reported understanding of UV exposure are a t-statistic of 0.475 and a p-value of 0.649. Since the p-value is greater than α= 0.05, we do not reject the null hypothesis, and therefore conclude that the before and after results have a difference of 0. The repetitive nature of self-reporting understanding of UV each time the questionnaire is taken could be impacting the results. This is because users are less likely to notice differences in their understanding day-to-day, but rather may realize that their understanding has changed considerably after a few weeks or a few months using the SunExposure app. As a result, in as part of the future work, we propose that more experimentation be conducted with this questionnaire,using less frequent polling over longer stretches of time. 
- </div>
- </div>
+<body style="margin:0">
+    <div class="container">
+        <div class="headerBar">
+            <div class="title">
+                SunExposure
+            </div>
+        </div>
+        <div class="menuBar">
+            <div class="menuItem" onclick="location.href='index.html'">Home</div>
+            <div class="menuItem" onclick="location.href='app.html'">SunExposure App</div>
+            <div class="menuItem currentMenuItem">Experiment And Results</div>
+            <div class="menuItem" onclick="location.href='about.html'">About</div>
+        </div>
+        <div class="contentContainerAbout">
+            <h1> Experiment 1</h1>
+            <h2> Methods </h2>
+            As described in the <i>SunExposure App</i> section, the app collects Wifi signal strength data, cell signal data and GPS data. From this, we extract the following features:
+            <ul>
+                <li>Number of GPS Satellites</li>
+                <li>Wifi Strength Percentage</li>
+                <li>Cell Signal DBM</li>
+                <li>Cell Signal ASU</li>
+                <li>Cell Signal Level</li>
+            </ul>
+
+            After data collection, the features are inputted into various rule and tree based models using Weka (https://www.cs.waikato.ac.nz/ml/weka/). Based on the results, we choose the decision tree REPTree with a maximum level of 3 as our trained model for indoor
+            vs. outdoor detection.
+            <div class="figureIMG">
+                <img src="media/figure_2.png">
+            </div>
+
+            Participants were then asked to walk indoors and outdoors at certain times, using both the SunExposure app and a Shade sensor.
+
+            <h2> Results </h2>
+            Our result show that the REPTree model can successfully predict where a user is indoors vs outdoors based on the smartphone data. TABLE Additionally, the graph shows a that the SunExposure system currently overestimates the accumulated UV dosage, while
+            the Shade sensor is underreporting UV dosage. However, the app and sensor have high correlation.
+            <div style="width:70%; margin:auto">
+                <img src="media/graph.png">
+            </div>
+            <div style="width:50%; margin:auto">
+                <img src="media/table.png">
+            </div>
+
+            <h1> Experiment 2 </h1>
+            <h2> Methods </h2>
+            Participants are asked their understanding of their own UV exposure each time they complete the questionnaire, which asks questions about the user's time outdoors and perceived maximum UV Index. The SunExposure app then presents the true maximum UV Index
+            of the user for that day and presents a fact about UV exposure. The experiment compares the first reported self-report of UV understanding to the last self-report.
+
+            <h2> Results </h2>
+            <p>The results of our t-test for before and after self-reported understanding of UV exposure are a t-statistic of 0.475 and a p-value of 0.649. Since the p-value is greater than alpha = 0.05, we do not reject the null hypothesis, and therefore
+                conclude that the before and after results have a difference of 0. </p>
+            <p>The repetitive nature of self-reporting understanding of UV each time the questionnaire is taken could be impacting the results. This is because users are less likely to notice differences in their understanding day-to-day, but rather may
+                realize that their understanding has changed considerably after a few weeks or a few months using the SunExposure app. As a result, in as part of the future work, we propose that more experimentation be conducted with this questionnaire,using
+                less frequent polling over longer stretches of time. </p>
+        </div>
+    </div>
 </body>
 
 </html>
