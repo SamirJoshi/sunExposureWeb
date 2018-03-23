@@ -1,0 +1,48 @@
+<!doctype html>
+<!-- Made using HTML5 Boilerplate - credits to them for the boilerplate -->
+
+<head>
+    <title>SunExposure</title>
+    <link rel="stylesheet" type="text/css" href="css/sunExposure.css">
+</head>
+
+<body style="margin:0">
+    <div class="container">
+        <div class="headerBar">
+            <div class="title">
+                Sun<b>Exposure</b>
+            </div>
+        </div>
+        <div class="menuBar">
+            <div class="menuItem" onclick="location.href='index.html'">Home</div>
+            <div class="menuItem" onclick="location.href='app.html'">SunExposure App</div>
+            <div class="menuItem" onclick="location.href='expRes.html'">Experiment And Results</div>
+            <div class="menuItem currentMenuItem">Future Work</div>
+            <div class="menuItem" onclick="location.href='about.html'">About</div>
+        </div>
+        <div class="contentContainerAbout">
+            <h1>Unstructured Walkthrough</h1>
+            The graph showing the results of the unstructured walkthrough are below. In the unstructured walkthrough, a participant wore the Shade sensor and used the SunExposure app for an afternoon. The participant went about their day as normal, but noted the
+            times they were indoors and outdoors (in gray). The results show a F-score of 0.985 for indoor and outdoor detection and a Pearson Correlation Coefficient of 0.994 between the Shade sensor and SunExposure accumulated UV dosage values. However,
+            we again note the overestimation of SunExposure and the underestimation of Shade.
+
+            <div style="width:70%; margin:auto">
+                <img src="media/unstruct.png">
+            </div>
+
+            <h1>Next Steps and Future Work</h1>
+            Based on our work, we propose the following next steps:
+            <ul>
+                <li>Additional unstructured walkthroughs in varying weather conditions and different locations</li>
+                <li>Evaluating different UV Index APIs, even though they may be limited in terms of the precision or update period</li>
+                <li>Comparison to other physical UV sensors, such as the one developed by Professor John Rogers</li>
+                <li>Additional testing of the SunExposure app questionnaire, focussing on varying time intervals and overall timespan</li>
+            </ul>
+
+
+            <div class="paddingDiv">.</div>
+        </div>
+    </div>
+</body>
+
+</html>
